@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneCore Offset Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1 class="neon-text">OneCore Offset Pro</h1>
+            <p class="subtitle">Advanced .so Library Scanner & Analyzer</p>
+        </header>
+
+        <!-- Step 1: File Upload -->
+        <div class="card upload-box">
+            <input type="file" id="fileInput" accept=".so" hidden>
+            <label for="fileInput" class="upload-btn">📁 Choose .so File (Max 400MB)</label>
+            <p id="fileName">No file selected...</p>
+        </div>
+
+        <!-- Dashboard (Hidden by default, shows after upload) -->
+        <div class="card dashboard" id="dashboard" style="display: none;">
+            <h3>📊 Smart Dashboard</h3>
+            <div class="info-grid">
+                <p><strong>Name:</strong> <span id="infoName">-</span></p>
+                <p><strong>Size:</strong> <span id="infoSize">-</span></p>
+                <p><strong>Arch:</strong> <span id="infoArch" class="highlight">Scanning...</span></p>
+            </div>
+        </div>
+
+        <!-- Step 2: Search Engine -->
+        <div class="card search-box">
+            <div class="search-controls">
+                <select id="searchType" class="input-style">
+                    <option value="text">Text (String) Search</option>
+                    <option value="hex">Hex Pattern Search</option>
+                </select>
+                <input type="text" id="searchInput" class="input-style" placeholder="Type 'enemy', 'health' or '00 BF...'">
+                <button id="searchBtn" class="neon-btn">🔍 SEARCH</button>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" id="progressBox" style="display: none;">
+            <p id="statusText">Scanning chunks... 0%</p>
+            <div class="progress-bg">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Step 3: Results Output -->
+        <div class="card output-box">
+            <div class="output-header">
+                <h3>🧾 Extracted Offsets</h3>
+                <button class="copy-btn" id="copyBtn">📋 Copy All</button>
+            </div>
+            <textarea id="outputArea" readonly placeholder="[ Waiting for scan... ]&#10;Offsets will be printed here in Hex format."></textarea>
+        </div>
+    </div>
+
+    <!-- JS File Link -->
+    <script src="core.js"></script>
+</body>
+              </html>
